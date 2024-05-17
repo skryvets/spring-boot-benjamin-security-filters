@@ -1,5 +1,6 @@
 package com.example.springbootbenjaminsecurityfilters;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -8,7 +9,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final SomeService someService;
 
     @Bean
     @Order(2)
@@ -16,7 +20,7 @@ public class SecurityConfig {
         return http
             .securityMatcher("/c/**")
             .authorizeHttpRequests(matcher -> matcher.anyRequest().permitAll())
-            .addFilterBefore(new Filter1(), BasicAuthenticationFilter.class)
+            .addFilterBefore(new Filter1(someService), BasicAuthenticationFilter.class)
             .build();
     }
 

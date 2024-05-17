@@ -27,7 +27,8 @@ When you access this endpoint, you receive a log entry as a response which is in
 Accessing this endpoint also generates a specific log entry.
 
 ```bash
-2024-05-16T20:57:58.595-05:00 INFO 55669 --- [demo] [nio-8080-exec-5] c.e.s.Filter1 : Hello from Filter1
+2024-05-16T21:52:59.436-05:00  INFO 56814 --- [demo] [nio-8080-exec-1] c.e.s.SomeService                        : Doing some database stuff
+2024-05-16T21:52:59.436-05:00  INFO 56814 --- [demo] [nio-8080-exec-1] c.e.s.Filter1                            : Hello from Filter1
 ```
 
 From stackoverflow:
